@@ -24,14 +24,18 @@ enum ResultsServiceRouter: URLRequestConvertible {
     var parameters: [String: Any]? {
         switch self {
         case .fetchResults(text: let text):
-            return ["q": text]
+            return [
+                "q": text,
+                "status": "active",
+                "limit": 15
+            ]
         }
     }
     
     func asURLRequest() throws -> URLRequest {
         switch self {
         case .fetchResults:
-            return request(baseURL: URL(string: baseUrl)!, path: path, method: .get)
+            return request(baseURL: URL(string: baseUrl)!, path: path, method: .get, parameters: parameters)
         }
     }
 }

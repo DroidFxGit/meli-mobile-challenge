@@ -8,7 +8,7 @@
 import UIKit
 
 final class ResultsView: UIView {
-    private let tableView = UITableView()
+    let tableView = UITableView()
     
     init() {
         super.init(frame: .zero)
@@ -31,6 +31,8 @@ private extension ResultsView {
     func configureTableView() {
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .systemBackground
+        tableView.separatorStyle = .none
+//        tableView.rowHeight = 96
     }
     
     func setupConstraints() {

@@ -18,7 +18,7 @@
 		9A32DF15279A224F0054D737 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF14279A224F0054D737 /* MainView.swift */; };
 		9A32DF18279A262C0054D737 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF17279A262C0054D737 /* ResultsViewController.swift */; };
 		9A32DF1C279A26730054D737 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF1B279A26730054D737 /* ResultsView.swift */; };
-		9A32DF1F279A6ED80054D737 /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF1E279A6ED80054D737 /* ResultsViewModel.swift */; };
+		9A32DF1F279A6ED80054D737 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF1E279A6ED80054D737 /* MainViewModel.swift */; };
 		9A32DF22279A709E0054D737 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF21279A709E0054D737 /* BaseService.swift */; };
 		9A32DF26279A715A0054D737 /* URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF25279A715A0054D737 /* URLRequestConvertible.swift */; };
 		9A32DF28279A72760054D737 /* ResultsServiceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF27279A72760054D737 /* ResultsServiceRouter.swift */; };
@@ -61,7 +61,7 @@
 		9A32DF14279A224F0054D737 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		9A32DF17279A262C0054D737 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		9A32DF1B279A26730054D737 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
-		9A32DF1E279A6ED80054D737 /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
+		9A32DF1E279A6ED80054D737 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		9A32DF21279A709E0054D737 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		9A32DF25279A715A0054D737 /* URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestConvertible.swift; sourceTree = "<group>"; };
 		9A32DF27279A72760054D737 /* ResultsServiceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsServiceRouter.swift; sourceTree = "<group>"; };
@@ -200,6 +200,7 @@
 		9A32DF13279A22150054D737 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				9A32DF31279B2F6A0054D737 /* ViewModel */,
 				9A32DF12279A22010054D737 /* ViewController */,
 				9A32DF11279A21C20054D737 /* Views */,
 			);
@@ -209,7 +210,6 @@
 		9A32DF16279A260A0054D737 /* Results */ = {
 			isa = PBXGroup;
 			children = (
-				9A32DF1D279A6EC10054D737 /* ViewModel */,
 				9A32DF1A279A26550054D737 /* Views */,
 				9A32DF19279A263B0054D737 /* ViewController */,
 			);
@@ -230,14 +230,6 @@
 				9A32DF1B279A26730054D737 /* ResultsView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		9A32DF1D279A6EC10054D737 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				9A32DF1E279A6ED80054D737 /* ResultsViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		9A32DF20279A6F3D0054D737 /* Services */ = {
@@ -281,6 +273,14 @@
 				9A32DF2F279A78DD0054D737 /* ProductsResponse.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9A32DF31279B2F6A0054D737 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9A32DF1E279A6ED80054D737 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,7 +423,7 @@
 				9A32DF18279A262C0054D737 /* ResultsViewController.swift in Sources */,
 				9A32DF30279A78DD0054D737 /* ProductsResponse.swift in Sources */,
 				9A32DF26279A715A0054D737 /* URLRequestConvertible.swift in Sources */,
-				9A32DF1F279A6ED80054D737 /* ResultsViewModel.swift in Sources */,
+				9A32DF1F279A6ED80054D737 /* MainViewModel.swift in Sources */,
 				9A32DF22279A709E0054D737 /* BaseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

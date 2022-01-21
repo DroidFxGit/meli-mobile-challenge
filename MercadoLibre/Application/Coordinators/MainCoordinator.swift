@@ -15,6 +15,7 @@ protocol Startable: AnyObject {
 final class MainCoordinator: Startable {
     private weak var window: UIWindow?
     lazy var rootController: UINavigationController = UINavigationController()
+    lazy var service: ResultsService = ResultsServiceConcrete()
     
     init(window: UIWindow) {
         self.window = window
@@ -27,7 +28,8 @@ final class MainCoordinator: Startable {
     }
     
     func configureMainView() {
-        let mainView = MainViewController(searchController: searchController())
+        let viewModel = MainViewModel(service: service)
+        let mainView = MainViewController(viewModel: viewModel, searchController: searchController())
         rootController.viewControllers = [mainView]
         rootController.navigationBar.prefersLargeTitles = true
     }
