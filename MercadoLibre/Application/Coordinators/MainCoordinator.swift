@@ -27,8 +27,16 @@ final class MainCoordinator: Startable {
     }
     
     func configureMainView() {
-        let mainView = MainViewController()
+        let mainView = MainViewController(searchController: searchController())
         rootController.viewControllers = [mainView]
         rootController.navigationBar.prefersLargeTitles = true
+    }
+    
+    func searchController() -> UISearchController {
+        let resulstView = ResultsViewController()
+        let searchController = UISearchController(searchResultsController: resulstView)
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = NSLocalizedString("SEARCH_PLACEHOLDER", comment: "")
+        return searchController
     }
 }

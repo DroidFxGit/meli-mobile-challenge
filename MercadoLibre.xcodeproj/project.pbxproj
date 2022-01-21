@@ -18,6 +18,12 @@
 		9A32DF15279A224F0054D737 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF14279A224F0054D737 /* MainView.swift */; };
 		9A32DF18279A262C0054D737 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF17279A262C0054D737 /* ResultsViewController.swift */; };
 		9A32DF1C279A26730054D737 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF1B279A26730054D737 /* ResultsView.swift */; };
+		9A32DF1F279A6ED80054D737 /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF1E279A6ED80054D737 /* ResultsViewModel.swift */; };
+		9A32DF22279A709E0054D737 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF21279A709E0054D737 /* BaseService.swift */; };
+		9A32DF26279A715A0054D737 /* URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF25279A715A0054D737 /* URLRequestConvertible.swift */; };
+		9A32DF28279A72760054D737 /* ResultsServiceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF27279A72760054D737 /* ResultsServiceRouter.swift */; };
+		9A32DF2D279A781A0054D737 /* ResultsServiceConcrete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF2C279A781A0054D737 /* ResultsServiceConcrete.swift */; };
+		9A32DF30279A78DD0054D737 /* ProductsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF2F279A78DD0054D737 /* ProductsResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +61,12 @@
 		9A32DF14279A224F0054D737 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		9A32DF17279A262C0054D737 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		9A32DF1B279A26730054D737 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		9A32DF1E279A6ED80054D737 /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
+		9A32DF21279A709E0054D737 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		9A32DF25279A715A0054D737 /* URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestConvertible.swift; sourceTree = "<group>"; };
+		9A32DF27279A72760054D737 /* ResultsServiceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsServiceRouter.swift; sourceTree = "<group>"; };
+		9A32DF2C279A781A0054D737 /* ResultsServiceConcrete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsServiceConcrete.swift; sourceTree = "<group>"; };
+		9A32DF2F279A78DD0054D737 /* ProductsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +156,8 @@
 		9A32DF0A279A1CC40054D737 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				9A32DF2E279A786E0054D737 /* Models */,
+				9A32DF20279A6F3D0054D737 /* Services */,
 				9A32DF0C279A1CF40054D737 /* Coordinators */,
 				9A32DF0B279A1CED0054D737 /* Modules */,
 			);
@@ -195,6 +209,7 @@
 		9A32DF16279A260A0054D737 /* Results */ = {
 			isa = PBXGroup;
 			children = (
+				9A32DF1D279A6EC10054D737 /* ViewModel */,
 				9A32DF1A279A26550054D737 /* Views */,
 				9A32DF19279A263B0054D737 /* ViewController */,
 			);
@@ -215,6 +230,57 @@
 				9A32DF1B279A26730054D737 /* ResultsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9A32DF1D279A6EC10054D737 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9A32DF1E279A6ED80054D737 /* ResultsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9A32DF20279A6F3D0054D737 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9A32DF29279A774B0054D737 /* Services */,
+				9A32DF24279A71210054D737 /* Base */,
+				9A32DF23279A71190054D737 /* Routers */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9A32DF23279A71190054D737 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				9A32DF25279A715A0054D737 /* URLRequestConvertible.swift */,
+				9A32DF27279A72760054D737 /* ResultsServiceRouter.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		9A32DF24279A71210054D737 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9A32DF21279A709E0054D737 /* BaseService.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		9A32DF29279A774B0054D737 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9A32DF2C279A781A0054D737 /* ResultsServiceConcrete.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9A32DF2E279A786E0054D737 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9A32DF2F279A78DD0054D737 /* ProductsResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,12 +413,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A32DEDA279A19D20054D737 /* AppDelegate.swift in Sources */,
+				9A32DF28279A72760054D737 /* ResultsServiceRouter.swift in Sources */,
 				9A32DF0E279A1D080054D737 /* MainCoordinator.swift in Sources */,
 				9A32DEDC279A19D20054D737 /* SceneDelegate.swift in Sources */,
 				9A32DF15279A224F0054D737 /* MainView.swift in Sources */,
+				9A32DF2D279A781A0054D737 /* ResultsServiceConcrete.swift in Sources */,
 				9A32DF1C279A26730054D737 /* ResultsView.swift in Sources */,
 				9A32DF10279A21BD0054D737 /* MainViewController.swift in Sources */,
 				9A32DF18279A262C0054D737 /* ResultsViewController.swift in Sources */,
+				9A32DF30279A78DD0054D737 /* ProductsResponse.swift in Sources */,
+				9A32DF26279A715A0054D737 /* URLRequestConvertible.swift in Sources */,
+				9A32DF1F279A6ED80054D737 /* ResultsViewModel.swift in Sources */,
+				9A32DF22279A709E0054D737 /* BaseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
