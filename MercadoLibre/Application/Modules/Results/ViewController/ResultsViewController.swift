@@ -18,6 +18,15 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        NotificationCenter.default.addObserver(self,
+                                               selector:
+                                                #selector(keyboardWillShow(notification:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide(notification:)),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
         configureTableView()
     }
     
@@ -31,6 +40,16 @@ class ResultsViewController: UIViewController {
         resultsView.tableView.dataSource = self
         resultsView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "resultsIndentifier")
     }
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            resultsView.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        }
+    }
+
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        resultsView.tableView.contentInset = .zero
+    }
 }
 
 extension ResultsViewController: UITableViewDataSource, UITableViewDelegate {
@@ -43,6 +62,7 @@ extension ResultsViewController: UITableViewDataSource, UITableViewDelegate {
             preconditionFailure("cannot dequeue cell")
         }
         let product = products[indexPath.row]
+        cell.textLabel?.numberOfLines = 0
         cell.textLabel?.text = product.title
         cell.imageView?.image = UIImage(systemName: "magnifyingglass")
         return cell

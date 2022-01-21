@@ -44,7 +44,7 @@ private extension MainView {
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         tableView.rowHeight = 96
-        tableView.backgroundColor = .systemBackground
+        tableView.backgroundColor = .background
     }
     
     func configureActivityIndicator() {

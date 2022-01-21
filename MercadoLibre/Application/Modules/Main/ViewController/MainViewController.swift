@@ -36,6 +36,7 @@ class MainViewController: UIViewController {
     }
     
     func setupView() {
+        title = NSLocalizedString("TITLE_VIEW", comment: "")
         view.backgroundColor = .white
         configureSearchController()
     }

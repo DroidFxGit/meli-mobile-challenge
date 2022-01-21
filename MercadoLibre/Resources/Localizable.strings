@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  MercadoLibre
+
+  Created by Carlos Vazquez on 21/01/22.
+  
+*/
+
+// Main View
+
+"TITLE_VIEW" = "Mercado libre";
+"SEARCH_PLACEHOLDER" = "Buscar productos";
