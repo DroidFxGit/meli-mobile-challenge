@@ -9,15 +9,18 @@ import Foundation
 
 enum ResultsServiceRouter: URLRequestConvertible {
     case fetchResults(text: String)
+    case detail(id: String)
     
     var baseUrl: String {
-        return "https://api.mercadolibre.com/sites/MLM"
+        return "https://api.mercadolibre.com"
     }
     
     var path: String {
         switch self {
         case .fetchResults:
-            return "/search"
+            return "/sites/MLM/search"
+        case .detail(id: let id):
+            return "/products/\(id)"
         }
     }
     
@@ -29,12 +32,14 @@ enum ResultsServiceRouter: URLRequestConvertible {
                 "status": "active",
                 "limit": 15
             ]
+        case .detail:
+            return nil
         }
     }
     
     func asURLRequest() throws -> URLRequest {
         switch self {
-        case .fetchResults:
+        case .fetchResults, .detail:
             return request(baseURL: URL(string: baseUrl)!, path: path, method: .get, parameters: parameters)
         }
     }

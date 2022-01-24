@@ -30,6 +30,7 @@
 		9A3D0A6C279E5D410091F24B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3D0A6B279E5D410091F24B /* DetailViewController.swift */; };
 		9A3D0A6F279E5E560091F24B /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3D0A6E279E5E560091F24B /* DetailCollectionViewCell.swift */; };
 		9A3D0A71279E6D910091F24B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3D0A70279E6D910091F24B /* DetailView.swift */; };
+		9A3D0A73279F155A0091F24B /* ProductDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3D0A72279F155A0091F24B /* ProductDetailResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		9A3D0A6B279E5D410091F24B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9A3D0A6E279E5E560091F24B /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		9A3D0A70279E6D910091F24B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		9A3D0A72279F155A0091F24B /* ProductDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				9A32DF2F279A78DD0054D737 /* ProductsResponse.swift */,
+				9A3D0A72279F155A0091F24B /* ProductDetailResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 			files = (
 				9A32DF38279C91E80054D737 /* ImageLoader.swift in Sources */,
 				9A3D0A71279E6D910091F24B /* DetailView.swift in Sources */,
+				9A3D0A73279F155A0091F24B /* ProductDetailResponse.swift in Sources */,
 				9A32DEDA279A19D20054D737 /* AppDelegate.swift in Sources */,
 				9A32DF28279A72760054D737 /* ResultsServiceRouter.swift in Sources */,
 				9A3D0A6F279E5E560091F24B /* DetailCollectionViewCell.swift in Sources */,

@@ -10,6 +10,7 @@ import Combine
 
 protocol ResultsService: AnyObject {
     func fetchResults(text: String) -> AnyPublisher<ProductsResponse, ServiceError>
+    func detail(id: String) -> AnyPublisher<ProductDetailResponse, ServiceError>
 }
 
 final class ResultsServiceConcrete: ResultsService {
@@ -21,6 +22,14 @@ final class ResultsServiceConcrete: ResultsService {
     
     func fetchResults(text: String) -> AnyPublisher<ProductsResponse, ServiceError> {
         guard let request = try? ResultsServiceRouter.fetchResults(text: text).asURLRequest() else {
+            let error = ServiceError.network(description: "Couldn't create URLRequest")
+            return Fail(error: error).eraseToAnyPublisher()
+        }
+        return service.perform(request: request)
+    }
+    
+    func detail(id: String) -> AnyPublisher<ProductDetailResponse, ServiceError> {
+        guard let request = try? ResultsServiceRouter.detail(id: id).asURLRequest() else {
             let error = ServiceError.network(description: "Couldn't create URLRequest")
             return Fail(error: error).eraseToAnyPublisher()
         }
