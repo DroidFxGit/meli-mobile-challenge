@@ -32,7 +32,6 @@ private extension ResultsView {
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .systemBackground
         tableView.separatorStyle = .none
-//        tableView.rowHeight = 96
     }
     
     func setupConstraints() {

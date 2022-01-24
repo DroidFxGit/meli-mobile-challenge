@@ -26,6 +26,10 @@
 		9A32DF30279A78DD0054D737 /* ProductsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF2F279A78DD0054D737 /* ProductsResponse.swift */; };
 		9A32DF33279B552B0054D737 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A32DF32279B552B0054D737 /* Localizable.strings */; };
 		9A32DF36279B595B0054D737 /* MainStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF35279B595B0054D737 /* MainStyle.swift */; };
+		9A32DF38279C91E80054D737 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A32DF37279C91E80054D737 /* ImageLoader.swift */; };
+		9A3D0A6C279E5D410091F24B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3D0A6B279E5D410091F24B /* DetailViewController.swift */; };
+		9A3D0A6F279E5E560091F24B /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3D0A6E279E5E560091F24B /* DetailCollectionViewCell.swift */; };
+		9A3D0A71279E6D910091F24B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3D0A70279E6D910091F24B /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +75,10 @@
 		9A32DF2F279A78DD0054D737 /* ProductsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsResponse.swift; sourceTree = "<group>"; };
 		9A32DF32279B552B0054D737 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		9A32DF35279B595B0054D737 /* MainStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStyle.swift; sourceTree = "<group>"; };
+		9A32DF37279C91E80054D737 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		9A3D0A6B279E5D410091F24B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9A3D0A6E279E5E560091F24B /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		9A3D0A70279E6D910091F24B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +181,7 @@
 		9A32DF0B279A1CED0054D737 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9A3D0A69279E5D1C0091F24B /* Detail */,
 				9A32DF16279A260A0054D737 /* Results */,
 				9A32DF13279A22150054D737 /* Main */,
 			);
@@ -293,8 +302,35 @@
 			isa = PBXGroup;
 			children = (
 				9A32DF35279B595B0054D737 /* MainStyle.swift */,
+				9A32DF37279C91E80054D737 /* ImageLoader.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		9A3D0A69279E5D1C0091F24B /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				9A3D0A6D279E5E300091F24B /* Views */,
+				9A3D0A6A279E5D290091F24B /* ViewController */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		9A3D0A6A279E5D290091F24B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9A3D0A6B279E5D410091F24B /* DetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9A3D0A6D279E5E300091F24B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9A3D0A6E279E5E560091F24B /* DetailCollectionViewCell.swift */,
+				9A3D0A70279E6D910091F24B /* DetailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,12 +463,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A32DF38279C91E80054D737 /* ImageLoader.swift in Sources */,
+				9A3D0A71279E6D910091F24B /* DetailView.swift in Sources */,
 				9A32DEDA279A19D20054D737 /* AppDelegate.swift in Sources */,
 				9A32DF28279A72760054D737 /* ResultsServiceRouter.swift in Sources */,
+				9A3D0A6F279E5E560091F24B /* DetailCollectionViewCell.swift in Sources */,
 				9A32DF0E279A1D080054D737 /* MainCoordinator.swift in Sources */,
 				9A32DEDC279A19D20054D737 /* SceneDelegate.swift in Sources */,
 				9A32DF15279A224F0054D737 /* MainView.swift in Sources */,
 				9A32DF2D279A781A0054D737 /* ResultsServiceConcrete.swift in Sources */,
+				9A3D0A6C279E5D410091F24B /* DetailViewController.swift in Sources */,
 				9A32DF1C279A26730054D737 /* ResultsView.swift in Sources */,
 				9A32DF10279A21BD0054D737 /* MainViewController.swift in Sources */,
 				9A32DF18279A262C0054D737 /* ResultsViewController.swift in Sources */,
