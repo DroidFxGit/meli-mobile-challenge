@@ -9,12 +9,24 @@ import UIKit
 
 class ResultsViewController: UIViewController {
     private let resultsView = ResultsView()
+    private let viewModel: ResultsViewModel
     var products: [Product] = [] {
         didSet {
             resultsView.tableView.reloadData()
         }
     }
-    var onSelectProduct: ((Product) -> Void)?
+    var onSelectProduct: ((ProductDetailResponse) -> Void)?
+    
+    init(viewModel: ResultsViewModel,
+         _ onSelectProduct: ((ProductDetailResponse) -> Void)? = nil) {
+        self.viewModel = viewModel
+        self.onSelectProduct = onSelectProduct
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +41,7 @@ class ResultsViewController: UIViewController {
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
         configureTableView()
+        bindDetail()
     }
     
     override func loadView() {
@@ -40,6 +53,12 @@ class ResultsViewController: UIViewController {
         resultsView.tableView.delegate = self
         resultsView.tableView.dataSource = self
         resultsView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "resultsIndentifier")
+    }
+    
+    func bindDetail() {
+        viewModel.onFinishDetail = { [weak self] item in
+            self?.onSelectProduct?(item)
+        }
     }
     
     @objc private func keyboardWillShow(notification: NSNotification) {
@@ -72,6 +91,6 @@ extension ResultsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let product = products[indexPath.row]
-        onSelectProduct?(product)
+        viewModel.checkDetail(id: product.productId)
     }
 }

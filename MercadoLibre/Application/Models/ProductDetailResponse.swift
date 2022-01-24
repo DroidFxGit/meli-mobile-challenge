@@ -12,7 +12,7 @@ struct ProductDetailResponse: Codable {
     let name: String
     let pictures: [Picture]
     let features: [Feature]
-    let description: String
+    let description: Description
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -29,4 +29,13 @@ struct Picture: Codable {
 
 struct Feature: Codable {
     let text: String
+}
+
+struct Description: Codable {
+    let type: DescriptionType
+    let content: String
+}
+
+enum DescriptionType: String, Codable {
+    case plaintext
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailView: UIView {
-    let collectionView = UICollectionView()
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     let pageControl = UIPageControl()
     
     init() {

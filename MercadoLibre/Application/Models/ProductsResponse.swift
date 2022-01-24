@@ -11,9 +11,17 @@ struct ProductsResponse: Codable {
 }
 
 struct Product: Codable {
-    let id: String
+    let productId: String
     let title: String
     let price: Double
     let permalink: String
     let thumbnail: String
+    
+    enum CodingKeys: String, CodingKey {
+        case productId = "catalog_product_id"
+        case title
+        case price
+        case permalink
+        case thumbnail
+    }
 }

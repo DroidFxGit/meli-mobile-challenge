@@ -35,10 +35,19 @@ final class MainCoordinator: Startable {
     }
     
     func searchController() -> UISearchController {
-        let resulstView = ResultsViewController()
+        let viewModel = ResultsViewModel(service: service)
+        let resulstView = ResultsViewController(viewModel: viewModel) { [weak self] item in
+            self?.configureDetailView(item: item)
+        }
         let searchController = UISearchController(searchResultsController: resulstView)
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = NSLocalizedString("SEARCH_PLACEHOLDER", comment: "")
         return searchController
+    }
+    
+    func configureDetailView(item: ProductDetailResponse) {
+        let datasource = DetailDataSource(item: item)
+        let detailView = DetailViewController(datasource: datasource)
+        rootController.pushViewController(detailView, animated: true)
     }
 }
