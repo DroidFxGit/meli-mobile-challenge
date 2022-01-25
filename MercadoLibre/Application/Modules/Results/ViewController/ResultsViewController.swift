@@ -99,7 +99,8 @@ extension ResultsViewController: UITableViewDataSource, UITableViewDelegate {
                                    name: product.title,
                                    pictures: [.init(url: product.thumbnail)],
                                    features: [],
-                                   description: .init(type: .plaintext, content: "")))
+                                   description: .init(type: .plaintext, content: ""),
+                                   price: .init(price: product.price, currency: product.currency)))
         }
         
     }

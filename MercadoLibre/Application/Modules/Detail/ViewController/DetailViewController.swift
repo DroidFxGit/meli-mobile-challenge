@@ -12,6 +12,7 @@ final class DetailViewController: UIViewController {
     private let detailView = DetailView()
     private let item: ProductDetailResponse
     private let allSections = Sections.allCases
+    private let identifier = "detailIndentifier"
     
     private lazy var doneButton: UIBarButtonItem = {
         let select = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneAction))
@@ -21,6 +22,7 @@ final class DetailViewController: UIViewController {
     
     enum Sections: Int, CaseIterable {
         case title = 0
+        case price
         case descriptionText
         case features
     }
@@ -38,7 +40,7 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
         detailView.tableView.delegate = self
         detailView.tableView.dataSource = self
-        detailView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "detailIndentifier")
+        detailView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
         navigationItem.rightBarButtonItem = doneButton
     }
     
@@ -60,7 +62,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let section = allSections[section]
         switch section {
-        case .title, .descriptionText:
+        case .title, .descriptionText, .price:
             return 1
         case .features:
             return item.features.count
@@ -68,7 +70,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "detailIndentifier") else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) else {
             preconditionFailure("cannot dequeue cell")
         }
         cell.textLabel?.numberOfLines = 0
@@ -78,6 +80,10 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         case .title:
             cell.textLabel?.text = item.name
             cell.textLabel?.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        case .price:
+            let currency = NumberFormatter.localizedString(from: NSNumber(value: item.price.price), number: .currency)
+            cell.textLabel?.text = "\(currency) \(item.price.currency)"
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 32, weight: .bold)
         case .descriptionText:
             cell.textLabel?.text = item.description.content
             cell.textLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
@@ -100,11 +106,10 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let section = allSections[indexPath.section]
         switch section {
-            
-        case .title, .features:
+        case .title, .features, .price:
             return 96
         case .descriptionText:
-            return 500
+            return item.description.content.isEmpty ? 0.0 : 500.0
         }
     }
 }

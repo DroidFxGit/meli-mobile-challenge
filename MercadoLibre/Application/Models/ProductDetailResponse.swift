@@ -13,6 +13,7 @@ struct ProductDetailResponse: Codable {
     let pictures: [Picture]
     let features: [Feature]
     let description: Description
+    let price: Price
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -20,6 +21,17 @@ struct ProductDetailResponse: Codable {
         case pictures
         case features = "main_features"
         case description = "short_description"
+        case price = "buy_box_winner"
+    }
+}
+
+struct Price: Codable {
+    let price: Double
+    let currency: String
+    
+    enum CodingKeys: String, CodingKey {
+        case price
+        case currency = "currency_id"
     }
 }
 

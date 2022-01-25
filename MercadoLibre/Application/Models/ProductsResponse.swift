@@ -15,6 +15,7 @@ struct Product: Codable {
     let id: String
     let title: String
     let price: Double
+    let currency: String
     let permalink: String
     let thumbnail: String
     
@@ -23,6 +24,7 @@ struct Product: Codable {
         case id
         case title
         case price
+        case currency = "currency_id"
         case permalink
         case thumbnail
     }
