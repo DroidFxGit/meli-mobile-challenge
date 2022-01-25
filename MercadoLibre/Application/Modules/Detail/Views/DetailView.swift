@@ -1,14 +1,14 @@
 //
-//  ResultsView.swift
+//  DetailView.swift
 //  MercadoLibre
 //
-//  Created by Carlos Vazquez on 20/01/22.
+//  Created by Carlos Vazquez on 24/01/22.
 //
 
 import UIKit
 
-final class ResultsView: UIView {
-    let tableView = UITableView()
+final class DetailView: UIView {
+    let tableView = UITableView(frame: .zero, style: .grouped)
     
     init() {
         super.init(frame: .zero)
@@ -21,20 +21,21 @@ final class ResultsView: UIView {
     }
 }
 
-private extension ResultsView {
+private extension DetailView {
     func setup() {
         configureTableView()
         addSubview(tableView)
-        setupConstraints()
+        configureConstraints()
     }
     
     func configureTableView() {
         tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .singleLine
+        tableView.rowHeight = 96
         tableView.backgroundColor = .background
-        tableView.separatorStyle = .none
     }
     
-    func setupConstraints() {
+    func configureConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),

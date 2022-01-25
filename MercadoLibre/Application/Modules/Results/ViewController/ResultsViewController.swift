@@ -30,7 +30,7 @@ class ResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .background
         NotificationCenter.default.addObserver(self,
                                                selector:
                                                 #selector(keyboardWillShow(notification:)),
@@ -98,7 +98,7 @@ extension ResultsViewController: UITableViewDataSource, UITableViewDelegate {
             onSelectProduct?(.init(id: product.id,
                                    name: product.title,
                                    pictures: [.init(url: product.thumbnail)],
-                                   features: [.init(text: "")],
+                                   features: [],
                                    description: .init(type: .plaintext, content: "")))
         }
         
