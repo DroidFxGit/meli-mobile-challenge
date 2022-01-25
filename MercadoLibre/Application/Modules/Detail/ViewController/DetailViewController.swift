@@ -22,12 +22,29 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailView.collectionView.delegate = datasource
-        detailView.collectionView.dataSource = datasource
+        configureUI()
+        datasource.onUpdatePager = { [weak self] scrollView in
+            self?.updatePager(scrollView: scrollView)
+        }
     }
     
     override func loadView() {
         super.loadView()
         view = detailView
+    }
+    
+    func configureUI() {
+        view.backgroundColor = .background
+        detailView.pageControl.numberOfPages = datasource.numberOfPages()
+        detailView.pageControl.currentPage = 0
+        detailView.collectionView.register(DetailCollectionViewCell.self,
+                                           forCellWithReuseIdentifier: DetailCollectionViewCell.identifier)
+        detailView.collectionView.delegate = datasource
+        detailView.collectionView.dataSource = datasource
+    }
+    
+    func updatePager(scrollView: UIScrollView) {
+        let pageIndex = Int(round(scrollView.contentOffset.x / view.frame.width))
+        detailView.pageControl.currentPage = pageIndex
     }
 }

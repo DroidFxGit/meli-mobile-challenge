@@ -48,6 +48,7 @@ final class MainCoordinator: Startable {
     func configureDetailView(item: ProductDetailResponse) {
         let datasource = DetailDataSource(item: item)
         let detailView = DetailViewController(datasource: datasource)
-        rootController.pushViewController(detailView, animated: true)
+        let navigationController = UINavigationController(rootViewController: detailView)
+        rootController.present(navigationController, animated: true)
     }
 }

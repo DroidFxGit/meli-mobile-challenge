@@ -11,7 +11,8 @@ struct ProductsResponse: Codable {
 }
 
 struct Product: Codable {
-    let productId: String
+    let productId: String?
+    let id: String
     let title: String
     let price: Double
     let permalink: String
@@ -19,6 +20,7 @@ struct Product: Codable {
     
     enum CodingKeys: String, CodingKey {
         case productId = "catalog_product_id"
+        case id
         case title
         case price
         case permalink

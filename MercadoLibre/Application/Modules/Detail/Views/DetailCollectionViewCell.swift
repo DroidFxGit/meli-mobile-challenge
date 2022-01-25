@@ -8,6 +8,7 @@
 import UIKit
 
 class DetailCollectionViewCell: UICollectionViewCell {
+    static let identifier = "collectionIdentifier"
     private let imageView = UIImageView()
     
     override init(frame: CGRect) {
@@ -26,6 +27,7 @@ class DetailCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(image: UIImage) {
+        imageView.contentMode = .scaleAspectFit
         imageView.image = image
     }
 }

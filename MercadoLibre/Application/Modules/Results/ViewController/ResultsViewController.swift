@@ -91,6 +91,6 @@ extension ResultsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let product = products[indexPath.row]
-        viewModel.checkDetail(id: product.productId)
+        viewModel.checkDetail(id: product.productId ?? product.id)
     }
 }

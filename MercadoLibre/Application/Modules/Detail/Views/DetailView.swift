@@ -8,6 +8,11 @@
 import UIKit
 
 class DetailView: UIView {
+    private lazy var flowLayout: UICollectionViewFlowLayout = {
+        let flow = UICollectionViewFlowLayout()
+        flow.scrollDirection = .horizontal
+        return flow
+    }()
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     let pageControl = UIPageControl()
     
@@ -24,6 +29,11 @@ class DetailView: UIView {
 
 private extension DetailView {
     func setup() {
+        pageControl.pageIndicatorTintColor = .lightGray
+        pageControl.currentPageIndicatorTintColor = .primary
+        collectionView.collectionViewLayout = flowLayout
+        collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
         addSubview(collectionView)
         addSubview(pageControl)
         setupCollectionViewConstraints()
@@ -43,7 +53,7 @@ private extension DetailView {
     func setupPageControlConstraints() {
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            pageControl.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 200),
+            pageControl.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 250),
             pageControl.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor)
         ])
     }
