@@ -91,6 +91,16 @@ extension ResultsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let product = products[indexPath.row]
-        viewModel.checkDetail(id: product.productId ?? product.id)
+        if let productId = product.productId {
+            viewModel.checkDetail(id: productId)
+        } else {
+            let product = products[indexPath.row]
+            onSelectProduct?(.init(id: product.id,
+                                   name: product.title,
+                                   pictures: [.init(url: product.thumbnail)],
+                                   features: [.init(text: "")],
+                                   description: .init(type: .plaintext, content: "")))
+        }
+        
     }
 }

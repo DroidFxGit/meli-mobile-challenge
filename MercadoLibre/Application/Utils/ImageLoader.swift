@@ -19,7 +19,6 @@ struct ImageLoader {
             .compactMap { UIImage(data: $0) }
             .sink(receiveCompletion: ( { state in
             })) { output in
-                output.jpegData(compressionQuality: 0.25)
                 completion(output)
             }
             .store(in: &subscriptions)

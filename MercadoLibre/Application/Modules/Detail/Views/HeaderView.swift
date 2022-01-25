@@ -1,5 +1,5 @@
 //
-//  DetailView.swift
+//  HeaderView.swift
 //  MercadoLibre
 //
 //  Created by Carlos Vazquez on 23/01/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailView: UIView {
+class HeaderView: UIView {
     private lazy var flowLayout: UICollectionViewFlowLayout = {
         let flow = UICollectionViewFlowLayout()
         flow.scrollDirection = .horizontal
@@ -27,7 +27,7 @@ class DetailView: UIView {
     }
 }
 
-private extension DetailView {
+private extension HeaderView {
     func setup() {
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .primary

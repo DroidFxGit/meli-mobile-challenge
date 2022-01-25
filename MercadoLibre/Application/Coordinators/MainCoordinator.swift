@@ -37,7 +37,7 @@ final class MainCoordinator: Startable {
     func searchController() -> UISearchController {
         let viewModel = ResultsViewModel(service: service)
         let resulstView = ResultsViewController(viewModel: viewModel) { [weak self] item in
-            self?.configureDetailView(item: item)
+            
         }
         let searchController = UISearchController(searchResultsController: resulstView)
         searchController.obscuresBackgroundDuringPresentation = false
@@ -45,9 +45,9 @@ final class MainCoordinator: Startable {
         return searchController
     }
     
-    func configureDetailView(item: ProductDetailResponse) {
+    func headerView(item: ProductDetailResponse) {
         let datasource = DetailDataSource(item: item)
-        let detailView = DetailViewController(datasource: datasource)
+        let detailView = HeaderViewController(datasource: datasource)
         let navigationController = UINavigationController(rootViewController: detailView)
         rootController.present(navigationController, animated: true)
     }

@@ -1,50 +1,26 @@
 //
-//  DetailViewController.swift
+//  DetailContainerViewController.swift
 //  MercadoLibre
 //
-//  Created by Carlos Vazquez on 23/01/22.
+//  Created by Carlos Vazquez on 24/01/22.
 //
 
 import UIKit
 
-class DetailViewController: UIViewController {
-    private let detailView = DetailView()
-    private let datasource: DetailDataSource
-    
-    init(datasource: DetailDataSource) {
-        self.datasource = datasource
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+final class DetailViewController: UIViewController {
+    var headerView: HeaderViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
-        datasource.onUpdatePager = { [weak self] scrollView in
-            self?.updatePager(scrollView: scrollView)
-        }
+    }
+}
+
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
-    override func loadView() {
-        super.loadView()
-        view = detailView
-    }
-    
-    func configureUI() {
-        view.backgroundColor = .background
-        detailView.pageControl.numberOfPages = datasource.numberOfPages()
-        detailView.pageControl.currentPage = 0
-        detailView.collectionView.register(DetailCollectionViewCell.self,
-                                           forCellWithReuseIdentifier: DetailCollectionViewCell.identifier)
-        detailView.collectionView.delegate = datasource
-        detailView.collectionView.dataSource = datasource
-    }
-    
-    func updatePager(scrollView: UIScrollView) {
-        let pageIndex = Int(round(scrollView.contentOffset.x / view.frame.width))
-        detailView.pageControl.currentPage = pageIndex
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }
